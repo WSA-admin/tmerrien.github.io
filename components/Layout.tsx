@@ -89,15 +89,15 @@ export default function Layout({ children }: LayoutProps) {
                 onClick={() => scrollToSection('education')}
                 className="text-xs md:text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-1 md:px-2 py-1"
               >
-                <span className="hidden lg:inline">Education</span>
-                <span className="lg:hidden">Edu</span>
+                <span className="hidden lg:inline text-xs md:text-sm lg:text-base font-bold font-condensed">Education</span>
+                <span className="lg:hidden text-xs md:text-sm lg:text-base font-bold font-condensed">Edu</span>
               </button>
               <button
                 onClick={() => scrollToSection('experience')}
                 className="text-xs md:text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-1 md:px-2 py-1"
               >
-                <span className="hidden lg:inline">Experience</span>
-                <span className="lg:hidden">Exp</span>
+                <span className="hidden lg:inline text-xs md:text-sm lg:text-base font-bold font-condensed">Experience</span>
+                <span className="lg:hidden text-xs md:text-sm lg:text-base font-bold font-condensed">Exp</span>
               </button>
               <button
                 onClick={() => scrollToSection('projects')}
