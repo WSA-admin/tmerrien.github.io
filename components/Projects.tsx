@@ -20,7 +20,7 @@ const projects = [
     description: 'A physics research project investigating orbital resonance gaps in the asteroid belt. Combines computational analysis with theoretical physics to model and visualize the gravitational dynamics.',
     imageSrc: null,
     liveUrl: 'https://github.com/tmerrien/kirkwood_gaps',
-    repoUrl: 'https://github.com/tmerrien/kirkwood_gaps',
+    repoUrl: null,
     isProprietary: false,
     tech: ['Python', 'NumPy', 'Matplotlib', 'Physics'],
     category: 'Research Project'
@@ -102,19 +102,21 @@ const FloatingProjectCard = ({ project, index, mouseX, mouseY }: any) => {
       }}
     >
       <motion.div
-        className="relative w-full h-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 dark:border-gray-700/20 overflow-hidden"
+        className="relative w-full h-full bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-colors duration-300"
         style={{
           rotateX,
           rotateY,
           transformStyle: 'preserve-3d'
         }}
+        whileHover={{
+          backgroundColor: 'rgba(59, 130, 246, 0.05)',
+          borderColor: 'rgba(59, 130, 246, 0.3)',
+          transition: { duration: 0.3 }
+        }}
       >
-        {/* Animated gradient background */}
+        {/* Hover gradient overlay */}
         <motion.div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{
-            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%)',
-          }}
+          className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         />
         
         {/* Floating particles */}
@@ -319,7 +321,7 @@ export default function Projects() {
         ◆
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
         {/* Enhanced section header */}
         <motion.div
           className="text-center mb-20"
@@ -391,44 +393,6 @@ export default function Projects() {
             />
           ))}
         </div>
-        
-        {/* Call to action with magnetic effect */}
-        <motion.div
-          className="text-center mt-20"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <motion.div
-            className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-gray-700/20 cursor-pointer group"
-            whileHover={{ 
-              scale: 1.05,
-              backgroundColor: 'rgba(59, 130, 246, 0.05)'
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.span
-              className="text-lg font-semibold text-gray-700 dark:text-gray-300 group-hover:text-blue-500 transition-colors"
-            >
-              More innovative projects in development
-            </motion.span>
-            <motion.div
-              animate={{ 
-                rotate: [0, 360],
-                scale: [1, 1.2, 1]
-              }}
-              transition={{ 
-                duration: 4, 
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="text-2xl"
-            >
-              ⚡
-            </motion.div>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

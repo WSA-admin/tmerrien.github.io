@@ -72,7 +72,7 @@ export default function About() {
         {'[]'}
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section header with creative reveal */}
         <motion.div
           className="text-center mb-20"
@@ -98,7 +98,7 @@ export default function About() {
           />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left side - Animated text */}
           <motion.div
             ref={textRef}
@@ -124,17 +124,17 @@ export default function About() {
               ))}
             </motion.div>
 
-            {/* Stats with counter animations */}
+            {/* Stats with counter animations - improved mobile layout */}
             <motion.div
-              className="grid grid-cols-3 gap-8 pt-12"
+              className="grid grid-cols-1 xs:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 pt-8 sm:pt-12"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="text-center">
+              <div className="text-center px-2">
                 <motion.div
-                  className="text-4xl font-black text-blue-600 dark:text-blue-400 mb-2"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-black text-blue-600 dark:text-blue-400 mb-2"
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.2, duration: 0.5, type: "spring" }}
@@ -142,12 +142,12 @@ export default function About() {
                 >
                   2025
                 </motion.div>
-                <div className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400">Graduation</div>
+                <div className="text-xs sm:text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400 leading-tight">Graduation</div>
               </div>
               
-              <div className="text-center">
+              <div className="text-center px-2">
                 <motion.div
-                  className="text-4xl font-black text-purple-600 dark:text-purple-400 mb-2"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-black text-purple-600 dark:text-purple-400 mb-2"
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.4, duration: 0.5, type: "spring" }}
@@ -155,12 +155,12 @@ export default function About() {
                 >
                   AI
                 </motion.div>
-                <div className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400">Focus Area</div>
+                <div className="text-xs sm:text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400 leading-tight">Focus Area</div>
               </div>
               
-              <div className="text-center">
+              <div className="text-center px-2">
                 <motion.div
-                  className="text-4xl font-black text-green-600 dark:text-green-400 mb-2"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-black text-green-600 dark:text-green-400 mb-2"
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.6, duration: 0.5, type: "spring" }}
@@ -168,7 +168,7 @@ export default function About() {
                 >
                   UPEI
                 </motion.div>
-                <div className="text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400">University</div>
+                <div className="text-xs sm:text-sm uppercase tracking-wide text-gray-600 dark:text-gray-400 leading-tight">University</div>
               </div>
             </motion.div>
           </motion.div>

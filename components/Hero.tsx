@@ -22,11 +22,11 @@ export default function Hero() {
     }
   };
 
-  const nameText = "Tanguy Merrien";
-  const letters = nameText.split("");
+  // Split by words instead of letters to keep first and last names together
+  const nameWords = ["Tanguy", "Merrien"];
 
   return (
-    <section id="home" className="hero min-h-screen flex items-center justify-center relative overflow-hidden px-4">
+    <section id="home" className="hero min-h-screen flex items-center justify-center relative overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8">
       {/* Background Video */}
       <video
         autoPlay
@@ -43,26 +43,33 @@ export default function Hero() {
       
       {/* Content */}
       <div className="text-center space-y-6 sm:space-y-8 relative z-20 max-w-4xl mx-auto">
-        {/* Main title */}
+        {/* Main title - animate each word separately to keep names together */}
         <motion.h1
           variants={titleVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-wrap justify-center items-center gap-1 sm:gap-2"
+          className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-2 sm:gap-4"
         >
-          {letters.map((letter, index) => (
-            <motion.span
-              key={index}
-              variants={letterVariants}
-              className={`
-                text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight
-                ${letter === ' ' ? 'w-1 sm:w-2' : ''}
-                text-white drop-shadow-lg
-              `}
-            >
-              {letter === ' ' ? '\u00A0' : letter}
-            </motion.span>
-          ))}
+          {nameWords.map((word, wordIndex) => {
+            const letters = word.split("");
+            return (
+              <motion.div
+                key={wordIndex}
+                className="flex justify-center items-center"
+                variants={letterVariants}
+              >
+                {letters.map((letter, letterIndex) => (
+                  <motion.span
+                    key={`${wordIndex}-${letterIndex}`}
+                    variants={letterVariants}
+                    className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white drop-shadow-lg"
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </motion.div>
+            );
+          })}
         </motion.h1>
 
         {/* Subtitle */}

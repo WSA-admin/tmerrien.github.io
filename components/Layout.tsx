@@ -68,44 +68,46 @@ export default function Layout({ children }: LayoutProps) {
                           'transparent'
         }}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+        <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-14 md:h-16">
             <div></div>
             
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex space-x-3 md:space-x-4 lg:space-x-6 xl:space-x-8">
               <button
                 onClick={() => scrollToSection('home')}
-                className="text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-2 py-1"
+                className="text-xs md:text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-1 md:px-2 py-1"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className="text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-2 py-1"
+                className="text-xs md:text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-1 md:px-2 py-1"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection('education')}
-                className="text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-2 py-1"
+                className="text-xs md:text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-1 md:px-2 py-1"
               >
-                Education
+                <span className="hidden lg:inline">Education</span>
+                <span className="lg:hidden">Edu</span>
               </button>
               <button
                 onClick={() => scrollToSection('experience')}
-                className="text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-2 py-1"
+                className="text-xs md:text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-1 md:px-2 py-1"
               >
-                Experience
+                <span className="hidden lg:inline">Experience</span>
+                <span className="lg:hidden">Exp</span>
               </button>
               <button
                 onClick={() => scrollToSection('projects')}
-                className="text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-2 py-1"
+                className="text-xs md:text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-1 md:px-2 py-1"
               >
                 Projects
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-2 py-1"
+                className="text-xs md:text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md px-1 md:px-2 py-1"
               >
                 Contact
               </button>
@@ -206,7 +208,7 @@ export default function Layout({ children }: LayoutProps) {
       </nav>
 
       {/* Main Content */}
-      <main className="md:pt-16">
+      <main>
         {children}
       </main>
     </div>

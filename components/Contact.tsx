@@ -27,13 +27,13 @@ export default function Contact() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
         delayChildren: 0.3
       }
     }
   };
 
-  const letterVariants = {
+  const wordVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -42,8 +42,8 @@ export default function Contact() {
     }
   };
 
-  const contactText = "Get In Touch";
-  const letters = contactText.split("");
+  // Split into two lines for better mobile layout: "Get In" / "Touch"
+  const contactWords = ["Get In", "Touch"];
 
   if (!mounted) {
     return null;
@@ -72,7 +72,7 @@ export default function Contact() {
         transition={{ duration: 6, repeat: Infinity }}
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
         <motion.div
           className="text-center max-w-4xl mx-auto"
           initial={{ opacity: 0 }}
@@ -80,36 +80,34 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          {/* Animated main title */}
+          {/* Animated main title - split by words to prevent breaking */}
           <motion.h2
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 mb-12"
+            className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-2 sm:gap-4 mb-12"
             key={mounted ? 'mounted' : 'unmounted'} // Force re-render on mount
           >
-            {letters.map((letter, index) => (
+            {contactWords.map((word, index) => (
               <motion.span
-                key={`${letter}-${index}`}
-                variants={letterVariants}
-                className={`text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight ${
-                  letter === ' ' ? 'w-2 sm:w-4' : ''
-                } text-gray-900 dark:text-white drop-shadow-lg transition-colors duration-300`}
+                key={`${word}-${index}`}
+                variants={wordVariants}
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 dark:text-white drop-shadow-lg transition-colors duration-300"
                 whileHover={{ 
                   scale: 1.1,
                   color: "#60A5FA",
                   transition: { duration: 0.2 }
                 }}
               >
-                {letter === ' ' ? '\u00A0' : letter}
+                {word}
               </motion.span>
             ))}
           </motion.h2>
 
           {/* Subtitle with typing effect */}
           <motion.p
-            className="text-lg sm:text-xl text-gray-700 dark:text-gray-100 mb-12 leading-relaxed max-w-2xl mx-auto transition-colors duration-300"
+            className="text-lg sm:text-xl text-gray-700 dark:text-gray-100 mb-12 leading-relaxed max-w-2xl mx-auto transition-colors duration-300 px-2"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
@@ -142,7 +140,7 @@ export default function Contact() {
                 }}
                 transition={{ duration: 0.3 }}
               />
-              <div className="relative bg-white text-gray-900 px-12 py-4 rounded-full font-semibold text-lg border border-gray-300 dark:border-white/20 backdrop-blur-sm transition-colors duration-300">
+              <div className="relative bg-white text-gray-900 px-8 sm:px-12 py-4 rounded-full font-semibold text-base sm:text-lg border border-gray-300 dark:border-white/20 backdrop-blur-sm transition-colors duration-300">
                 <span className="relative z-10">Contact Me</span>
                 <motion.div
                   className="absolute right-4 top-1/2 transform -translate-y-1/2"
@@ -157,14 +155,16 @@ export default function Contact() {
 
           {/* Contact info cards */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2 }}
             viewport={{ once: true }}
           >
-            <motion.div
-              className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-gray-600 shadow-lg transition-colors duration-300"
+            {/* Email card - fully clickable */}
+            <motion.a
+              href="mailto:tmerrien@outlook.com"
+              className="block bg-white dark:bg-gray-800 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-gray-600 shadow-lg transition-colors duration-300 cursor-pointer group"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
@@ -172,9 +172,9 @@ export default function Contact() {
               transition={{ duration: 0.3 }}
             >
               <div className="text-2xl mb-3">📧</div>
-              <h3 className="text-gray-900 dark:text-gray-100 font-semibold text-lg mb-2 transition-colors duration-300">Email</h3>
-              <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">tmerrien@outlook.com</p>
-            </motion.div>
+              <h3 className="text-gray-900 dark:text-gray-100 font-semibold text-lg mb-2 transition-colors duration-300 group-hover:text-blue-500">Email</h3>
+              <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 group-hover:text-blue-400 break-all sm:break-normal">tmerrien@outlook.com</p>
+            </motion.a>
 
             <motion.div
               className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-gray-600 shadow-lg transition-colors duration-300"
