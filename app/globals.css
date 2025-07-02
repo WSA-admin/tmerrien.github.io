@@ -1,0 +1,349 @@
+@import "tailwindcss";
+
+/* CSS Custom Properties for Dark Mode */
+:root {
+  /* Light mode colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
+  --bg-nav: rgba(255, 255, 255, 0.8);
+  --bg-card: #ffffff;
+  --bg-button: #f3f4f6;
+  --bg-button-hover: #e5e7eb;
+  
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #6b7280;
+  --text-nav: #374151;
+  
+  --border-primary: #e5e7eb;
+  --border-secondary: #d1d5db;
+  
+  --gradient-from: #eff6ff;
+  --gradient-via: #ffffff;
+  --gradient-to: #faf5ff;
+  
+  --badge-bg: #dcfce7;
+  --badge-text: #166534;
+  --link-color: #2563eb;
+  --link-hover: #1d4ed8;
+  
+  /* Teal Indigo Theme Colors from video */
+  --primary-teal: #14b8a6;
+  --primary-indigo: #6366f1;
+  --accent-teal: #5eead4;
+  --accent-indigo: #a5b4fc;
+}
+
+.dark {
+  /* Dark mode colors */
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-tertiary: #374151;
+  --bg-nav: rgba(15, 23, 42, 1);
+  --bg-card: #1f2937;
+  --bg-button: #374151;
+  --bg-button-hover: #4b5563;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-tertiary: #9ca3af;
+  --text-nav: #d1d5db;
+  
+  --border-primary: #374151;
+  --border-secondary: #4b5563;
+  
+  --gradient-from: #111827;
+  --gradient-via: #1f2937;
+  --gradient-to: #111827;
+  
+  --badge-bg: #14532d;
+  --badge-text: #bbf7d0;
+  --link-color: #60a5fa;
+  --link-hover: #3b82f6;
+  
+  /* Teal Indigo Theme Colors from video - dark mode */
+  --primary-teal: #0d9488;
+  --primary-indigo: #4f46e5;
+  --accent-teal: #2dd4bf;
+  --accent-indigo: #818cf8;
+}
+
+/* 
+  RST REACTOR TYPOGRAPHY HIERARCHY
+  ================================
+  All typography now uses RST Reactor for cohesive, modern design
+  Following Next.js font optimization with CSS variables
+*/
+
+/* Base typography - RST Reactor Regular for all text */
+* {
+  font-family: var(--font-rst-reactor), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-rst-reactor), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-weight: 400;
+  font-stretch: normal;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-feature-settings: 'kern', 'liga';
+  letter-spacing: 0.01em;
+}
+
+/* 
+  TYPOGRAPHY HIERARCHY
+  ===================
+*/
+
+/* Level 1: Hero/Display Titles - Extra Expanded Bold (Maximum Impact) */
+.hero-title, 
+.display-title,
+.hero h1 {
+  font-weight: 700 !important;
+  font-stretch: extra-expanded !important;
+  letter-spacing: 0.05em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+/* Level 2: Section Headers - Expanded Medium (Prominent, Wide) */
+h2,
+.section-title,
+.section-header {
+  font-weight: 500 !important;
+  font-stretch: expanded !important;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+/* Level 3: Content Headings - Bold Normal (Strong Presence) */
+h1,
+h3,
+.content-title,
+.article-title {
+  font-weight: 700 !important;
+  font-stretch: normal !important;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+/* Level 4: Subheadings - Medium Normal (Structured) */
+h4,
+h5,
+h6,
+.subtitle,
+.card-title,
+.project-title {
+  font-weight: 500 !important;
+  font-stretch: normal !important;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+/* Level 5: Body Text - Regular Normal (Readable) */
+p,
+.body-text,
+.description,
+div,
+span,
+li {
+  font-weight: 400 !important;
+  font-stretch: normal !important;
+  letter-spacing: 0.005em;
+  line-height: 1.6;
+}
+
+/* Level 6: Navigation & Buttons - Condensed Bold (Compact, Action) */
+nav,
+nav a,
+nav button,
+button,
+.btn,
+.cta,
+.nav-link {
+  font-weight: 700 !important;
+  font-stretch: condensed !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Level 7: UI Elements & Meta - Condensed Medium (Efficient Space) */
+.meta,
+.caption,
+.badge,
+.tag,
+.label,
+.secondary,
+input,
+textarea,
+select {
+  font-weight: 500 !important;
+  font-stretch: condensed !important;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+/* 
+  EMPHASIS & MODIFIERS
+  ===================
+*/
+
+/* Strong emphasis */
+strong,
+.strong,
+.emphasis {
+  font-weight: 700 !important;
+  font-stretch: normal !important;
+}
+
+/* Subtle emphasis - use medium weight */
+em,
+.em,
+.italic {
+  font-weight: 500 !important;
+  font-stretch: normal !important;
+  font-style: normal !important; /* RST Reactor doesn't have true italics */
+}
+
+/* Links */
+a {
+  font-weight: 500 !important;
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* 
+  TAILWIND UTILITY OVERRIDES
+  ==========================
+*/
+
+/* Font weight utilities */
+.font-normal { font-weight: 400 !important; font-stretch: normal !important; }
+.font-medium { font-weight: 500 !important; font-stretch: normal !important; }
+.font-semibold { font-weight: 500 !important; font-stretch: expanded !important; }
+.font-bold { font-weight: 700 !important; font-stretch: normal !important; }
+.font-extrabold { font-weight: 700 !important; font-stretch: expanded !important; }
+.font-black { font-weight: 700 !important; font-stretch: extra-expanded !important; }
+
+/* Custom width utilities */
+.font-condensed { font-stretch: condensed !important; }
+.font-expanded { font-stretch: expanded !important; }
+.font-extra-expanded { font-stretch: extra-expanded !important; }
+
+/* Text transform utilities */
+.uppercase { text-transform: uppercase; letter-spacing: 0.05em; }
+.normal-case { text-transform: none; }
+
+/* 
+  COMPONENT-SPECIFIC STYLES
+  =========================
+*/
+
+/* Hero subtitle - medium condensed for elegant contrast */
+.hero-subtitle,
+.hero p {
+  font-weight: 500 !important;
+  font-stretch: condensed !important;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  text-transform: none;
+}
+
+/* Quote blocks - expanded medium for prominence */
+blockquote,
+.quote {
+  font-weight: 500 !important;
+  font-stretch: expanded !important;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+/* Code and monospace - condensed for efficiency */
+code,
+pre,
+.code {
+  font-weight: 400 !important;
+  font-stretch: condensed !important;
+  letter-spacing: 0;
+}
+
+/* Override Tailwind color classes with CSS custom properties */
+/* Proper background color mappings for light/dark modes */
+.bg-white { background-color: #ffffff; }
+.dark .bg-white { background-color: #1f2937; }
+.bg-gray-50 { background-color: #f9fafb; }
+.dark .bg-gray-50 { background-color: #111827; }
+.bg-gray-100 { background-color: #f3f4f6; }
+.dark .bg-gray-100 { background-color: #374151; }
+.bg-gray-800 { background-color: #1f2937; }
+.dark .bg-gray-800 { background-color: #1f2937; }
+.bg-gray-900 { background-color: #111827; }
+.dark .bg-gray-900 { background-color: #111827; }
+
+/* Proper text color mappings for light/dark modes */
+.text-gray-900 { color: #111827; }
+.dark .text-gray-900 { color: #ffffff; }
+.text-gray-800 { color: #1f2937; }
+.dark .text-gray-800 { color: #f9fafb; }
+.text-gray-700 { color: #374151; }
+.dark .text-gray-700 { color: #e5e7eb; }
+.text-gray-600 { color: #4b5563; }
+.dark .text-gray-600 { color: #d1d5db; }
+.text-gray-400 { color: #9ca3af; }
+.dark .text-gray-400 { color: #6b7280; }
+.text-gray-300 { color: #d1d5db; }
+.dark .text-gray-300 { color: #4b5563; }
+.text-gray-200 { color: #e5e7eb; }
+.dark .text-gray-200 { color: #374151; }
+.text-white { color: #ffffff; }
+.dark .text-white { color: #ffffff; }
+
+.border-gray-200 { border-color: var(--border-primary) !important; }
+.border-gray-700 { border-color: var(--border-primary) !important; }
+.border-gray-800 { border-color: var(--border-secondary) !important; }
+
+.hover\:bg-gray-200:hover { background-color: var(--bg-button-hover) !important; }
+.hover\:bg-gray-700:hover { background-color: var(--bg-button-hover) !important; }
+.hover\:bg-gray-800:hover { background-color: var(--bg-tertiary) !important; }
+
+.hover\:text-gray-900:hover { color: var(--text-primary) !important; }
+.hover\:text-white:hover { color: var(--text-primary) !important; }
+
+/* Navigation transparency - commented out to allow Tailwind gradient classes */
+/* .bg-white\/80 { background-color: var(--bg-nav) !important; }
+.bg-gray-900\/80 { background-color: var(--bg-nav) !important; } */
+
+/* Gradient backgrounds */
+.bg-gradient-to-br { 
+  background: linear-gradient(to bottom right, var(--gradient-from), var(--gradient-via), var(--gradient-to)) !important; 
+}
+
+/* Badge colors */
+.bg-green-100 { background-color: var(--badge-bg) !important; }
+.bg-green-900 { background-color: var(--badge-bg) !important; }
+.text-green-800 { color: var(--badge-text) !important; }
+.text-green-200 { color: var(--badge-text) !important; }
+
+/* Link colors */
+.text-blue-600 { color: var(--link-color) !important; }
+.text-blue-400 { color: var(--link-color) !important; }
+
+/* Additional overrides */
+.bg-gray-300 { background-color: var(--bg-tertiary) !important; }
+.bg-gray-600 { background-color: var(--bg-tertiary) !important; }
+
+/* Smooth transitions for all elements */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
